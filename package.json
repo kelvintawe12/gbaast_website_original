@@ -1,0 +1,71 @@
+{
+  "name": "gbaast-website",
+  "version": "1.0.0",
+  "description": "Official website for Government Bilingual Anglophone Secondary School of Arts, Sciences & Technology (GBAAST) - A premier bilingual dormitory school offering quality secondary education",
+  "homepage": "https://www.gbaast.com",
+  "private": true,
+  "type": "module",
+  "author": {
+    "name": "Kelvin",
+    "email": "kelvintawe12@gmail.com",
+    "url": "https://github.com/kelvintawe12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kelvintawe12/gbaast_website_original.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kelvintawe12/gbaast_website_original/issues"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "education",
+    "school",
+    "bilingual",
+    "secondary-education",
+    "gbaast",
+    "cameroon",
+    "arts",
+    "sciences",
+    "technology",
+    "dormitory-school",
+    "react",
+    "typescript",
+    "vite",
+    "tailwindcss"
+  ],
+  "scripts": {
+    "dev": "npx vite",
+    "build": "npx vite build",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "preview": "npx vite preview"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@emotion/react": "^11.13.3",
+    "react-router-dom": "^6.26.2",
+    "lucide-react": "0.522.0",
+    "recharts": "^2.12.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.18",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.50.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.1",
+    "typescript": "^5.5.4",
+    "vite": "^5.2.0",
+    "tailwindcss": "3.4.17",
+    "autoprefixer": "latest",
+    "postcss": "latest"
+  }
+}

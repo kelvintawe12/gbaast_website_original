@@ -1,0 +1,69 @@
+# robots.txt for GBAAST - Government Bilingual Anglophone Secondary School
+# Website: https://www.gbaast.com
+# Maintained by: Kelvin Tawe
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow admin pages from indexing
+Disallow: /#/admin
+Disallow: /#/admin/*
+Disallow: /admin/
+Disallow: /admin/*
+
+# Disallow private/sensitive directories
+Disallow: /api/
+Disallow: /private/
+Disallow: /_admin/
+
+# Allow common crawl paths
+Allow: /#/about
+Allow: /#/programs
+Allow: /#/admissions
+Allow: /#/apply
+Allow: /#/campus-life
+Allow: /#/contact
+Allow: /#/news
+Allow: /#/events
+Allow: /#/blog
+Allow: /#/scholarships
+Allow: /#/alumni
+Allow: /#/student-spotlight
+Allow: /#/gallery
+
+# Block common unwanted bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Googlebot specific rules
+User-agent: Googlebot
+Allow: /
+Disallow: /#/admin
+Disallow: /#/admin/*
+
+# Google Image specific
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /#/admin
+
+# Bingbot specific rules
+User-agent: Bingbot
+Allow: /
+Disallow: /#/admin
+Disallow: /#/admin/*
+
+# Crawl-delay for general bots (in seconds)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://www.gbaast.com/sitemap.xml
