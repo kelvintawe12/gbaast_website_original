@@ -12,6 +12,7 @@ import {
   Monitor,
   Palette,
   Home,
+  Building2,
   Utensils,
   Clock,
   Bed,
@@ -1104,6 +1105,24 @@ export function CampusLifePage() {
           </div>
         </div>
       </section>
+
+      {/* Floating Campus Tour Button */}
+      <Link
+        to="/campus-tours"
+        className="fixed bottom-24 right-8 z-50 bg-gradient-to-r from-[#002B5B] to-[#001A3A] text-white p-4 rounded-full shadow-lg hover:shadow-2xl transition-all transform hover:scale-110 hover:-translate-y-2 group"
+        title="Go to Campus Tours"
+      >
+        <Building2 className="h-6 w-6 group-hover:animate-bounce" />
+      </Link>
+
+      {/* Floating Home Button */}
+      <Link
+        to="/"
+        className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-[#C8102E] to-[#A00E26] text-white p-4 rounded-full shadow-lg hover:shadow-2xl transition-all transform hover:scale-110 hover:-translate-y-2 group"
+        title="Go to Home"
+      >
+        <Home className="h-6 w-6 group-hover:animate-bounce" />
+      </Link>
     </div>);
 
 }

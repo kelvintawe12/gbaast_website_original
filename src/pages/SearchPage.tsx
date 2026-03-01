@@ -22,7 +22,7 @@ const searchData = [
     title: 'Computer Science & Technology',
     category: 'Programs',
     description: 'Comprehensive program covering programming, software development, AI, and data science.',
-    url: '/programs#degrees',
+    url: '/programs#academic',
     icon: GraduationCapIcon,
     tags: ['technology', 'computer', 'programming', 'software', 'AI', 'data science'],
     date: '2024-01-01'
@@ -32,7 +32,7 @@ const searchData = [
     title: 'Business Administration',
     category: 'Programs',
     description: 'Learn management, accounting, finance, and entrepreneurship in our bilingual business program.',
-    url: '/programs#degrees',
+    url: '/programs#academic',
     icon: GraduationCapIcon,
     tags: ['business', 'management', 'accounting', 'finance', 'entrepreneurship'],
     date: '2024-01-01'
@@ -42,7 +42,7 @@ const searchData = [
     title: 'Engineering & Applied Sciences',
     category: 'Programs',
     description: 'Study electrical, mechanical, and civil engineering with hands-on lab experience.',
-    url: '/programs#degrees',
+    url: '/programs#academic',
     icon: GraduationCapIcon,
     tags: ['engineering', 'electrical', 'mechanical', 'civil', 'science', 'lab'],
     date: '2024-01-01'
@@ -52,7 +52,7 @@ const searchData = [
     title: 'Medical Sciences',
     category: 'Programs',
     description: 'Pre-medical and nursing programs preparing students for careers in healthcare.',
-    url: '/programs#degrees',
+    url: '/programs#academic',
     icon: GraduationCapIcon,
     tags: ['medical', 'healthcare', 'nursing', 'medicine', 'health'],
     date: '2024-01-01'
@@ -62,7 +62,7 @@ const searchData = [
     title: 'Arts & Humanities',
     category: 'Programs',
     description: 'Explore literature, languages, history, and creative arts in French and English.',
-    url: '/programs#degrees',
+    url: '/programs#academic',
     icon: GraduationCapIcon,
     tags: ['arts', 'humanities', 'literature', 'languages', 'history', 'creative'],
     date: '2024-01-01'

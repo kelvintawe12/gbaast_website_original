@@ -46,8 +46,8 @@ const navItems: NavItem[] = [
     href: '/programs'
   },
   {
-    label: 'Degree Programs',
-    href: '/programs#degrees'
+    label: 'Academic Programs',
+    href: '/programs#academic'
   },
   {
     label: 'Research',

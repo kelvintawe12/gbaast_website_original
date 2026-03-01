@@ -7,6 +7,7 @@ import { AboutPage } from './pages/AboutPage';
 import { ProgramsPage } from './pages/ProgramsPage';
 import { AdmissionsPage } from './pages/AdmissionsPage';
 import { CampusLifePage } from './pages/CampusLifePage';
+import { CampusToursPage } from './pages/CampusToursPage';
 import { ContactPage } from './pages/ContactPage';
 import { NewsPage } from './pages/NewsPage';
 import { NewsArticlePage } from './pages/NewsArticlePage';
@@ -165,6 +166,14 @@ export function App() {
           element={
           <Layout>
               <CampusLifePage />
+            </Layout>
+          } />
+
+        <Route
+          path="/campus-tours"
+          element={
+          <Layout>
+              <CampusToursPage />
             </Layout>
           } />
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { HeroSection } from '../components/HeroSection';
 import { AboutSection } from '../components/AboutSection';
 import { ProgramsSection } from '../components/ProgramsSection';
-import { DegreePrograms } from '../components/DegreePrograms';
+import { AcademicPrograms } from '../components/AcademicPrograms';
 import { StatsSection } from '../components/StatsSection';
 import { NewsEventsSection } from '../components/NewsEventsSection';
 import { CampusLifeSection } from '../components/CampusLifeSection';
@@ -21,7 +21,7 @@ export function HomePage() {
       <HeroSection />
       <AboutSection />
       <ProgramsSection />
-      <DegreePrograms />
+      <AcademicPrograms />
       <StatsSection />
       <NewsEventsSection />
       <CampusLifeSection />
