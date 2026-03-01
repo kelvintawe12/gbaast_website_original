@@ -1,9 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
 export function ProgramsSection() {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          setCount(0); // Reset count when entering view
+        } else {
+          setIsVisible(false);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isVisible && count < 98) {
+      const timer = setTimeout(() => {
+        setCount(prev => Math.min(prev + 1, 98));
+      }, 20);
+      return () => clearTimeout(timer);
+    }
+  }, [count, isVisible]);
+
   return (
     <section
+      ref={sectionRef}
       id="why-gbaast"
       className="bg-white py-16 md:py-24 overflow-hidden">
 
@@ -18,12 +57,12 @@ export function ProgramsSection() {
               Programs Unique?
             </h2>
             <p className="text-[#002B5B]/80 text-lg mb-8 leading-relaxed">
-              At GBAAST, we believe in holistic education that goes beyond
-              textbooks. Our bilingual curriculum ensures students are fluent in
-              both English and French, opening doors to opportunities across
-              Africa and the world. With small class sizes, dedicated teachers,
-              and modern facilities, we provide personalized attention to help
-              every student excel in their chosen path.
+              At GBAAST, we follow the internationally recognized Cambridge GCE syllabus with 
+              a unique holistic approach that develops the whole student. Our innovative blend 
+              of Arts, Science, and Technology programs goes beyond academics - fostering 
+              critical thinking, creativity, leadership, and character. With modern facilities, 
+              expert mentorship, and personalized attention, we prepare students not just for 
+              exams, but for life success.
             </p>
             <Link
               to="/programs"
@@ -39,17 +78,17 @@ export function ProgramsSection() {
 
             <div className="relative z-10 flex flex-col sm:flex-row items-center gap-8 p-8">
               <div className="text-white text-right sm:max-w-[250px]">
-                <h3 className="text-xl font-bold mb-2">Bilingual Excellence</h3>
+                <h3 className="text-xl font-bold mb-2">Holistic Education</h3>
                 <p className="text-white/90 text-sm">
-                  Our students graduate fully proficient in both English and
-                  French...
+                  Arts, Science, and Technology combined with character development, 
+                  leadership training, and life skills...
                 </p>
               </div>
 
               <div className="w-48 h-48 rounded-full bg-[#9A0C23] flex flex-col items-center justify-center text-white p-6 text-center shadow-xl transform hover:scale-105 transition-transform">
-                <span className="text-6xl font-serif italic mb-2">98%</span>
+                <span className="text-6xl font-serif italic mb-2">{count}%</span>
                 <span className="text-sm leading-tight">
-                  Exam success rate in GCE & BEPC
+                  Exam success rate in GCE
                 </span>
               </div>
             </div>
