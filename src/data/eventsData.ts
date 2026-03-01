@@ -1,0 +1,598 @@
+export interface CalendarEvent {
+  id: string;
+  title: string;
+  description: string;
+  date: string; // ISO format: YYYY-MM-DD
+  endDate?: string; // For multi-day events
+  time: string;
+  endTime?: string;
+  location: string;
+  category: 'Academic' | 'Sports' | 'Cultural' | 'Administrative' | 'Community';
+  targetAudience: string[]; // e.g., ["Form 1-2", "All Students", "Parents"]
+  organizer: string;
+  contactEmail?: string;
+  registrationRequired: boolean;
+  registrationDeadline?: string;
+  maxParticipants?: number;
+  imageUrl?: string;
+  tags: string[];
+  isPastEvent?: boolean;
+}
+
+export const calendarEvents: CalendarEvent[] = [
+  // January 2026
+  {
+    id: 'evt-001',
+    title: 'New Academic Term Begins',
+    description: 'Welcome back students for the Second Term of the 2025-2026 academic year. All students must report to their respective form masters for registration and orientation.',
+    date: '2026-01-06',
+    time: '08:00 AM',
+    endTime: '12:00 PM',
+    location: 'Main Campus - All Classrooms',
+    category: 'Administrative',
+    targetAudience: ['All Students', 'Parents'],
+    organizer: 'Academic Office',
+    contactEmail: 'academics@gbaast.edu.cm',
+    registrationRequired: false,
+    tags: ['term-start', 'mandatory', 'orientation'],
+  },
+  {
+    id: 'evt-002',
+    title: 'Parent-Teacher Conference',
+    description: 'Mandatory meeting between parents and teachers to discuss first term performance, academic progress, and set goals for the new term. Individual time slots will be assigned.',
+    date: '2026-01-10',
+    time: '09:00 AM',
+    endTime: '05:00 PM',
+    location: 'Assembly Hall & Classrooms',
+    category: 'Administrative',
+    targetAudience: ['Parents', 'Teachers', 'All Students'],
+    organizer: 'Student Affairs Department',
+    contactEmail: 'ptc@gbaast.edu.cm',
+    registrationRequired: true,
+    registrationDeadline: '2026-01-08',
+    tags: ['parents', 'academic', 'mandatory'],
+  },
+  {
+    id: 'evt-003',
+    title: 'Mathematics Olympiad - School Round',
+    description: 'First round of the National Mathematics Olympiad. Top performers will represent GBAAST at the regional and national levels. Open to Forms 3-5.',
+    date: '2026-01-15',
+    time: '10:00 AM',
+    endTime: '12:30 PM',
+    location: 'Science Block - Rooms 201-205',
+    category: 'Academic',
+    targetAudience: ['Form 3', 'Form 4', 'Form 5'],
+    organizer: 'Mathematics Department',
+    contactEmail: 'math.dept@gbaast.edu.cm',
+    registrationRequired: true,
+    registrationDeadline: '2026-01-12',
+    maxParticipants: 100,
+    tags: ['competition', 'mathematics', 'olympiad'],
+  },
+  {
+    id: 'evt-004',
+    title: 'Basketball Tryouts',
+    description: 'Open tryouts for the school basketball team. Both boys and girls teams are recruiting. Bring sports attire and water. Previous experience welcome but not required.',
+    date: '2026-01-18',
+    time: '03:00 PM',
+    endTime: '05:30 PM',
+    location: 'Sports Complex - Basketball Court',
+    category: 'Sports',
+    targetAudience: ['All Students'],
+    organizer: 'Sports Department',
+    contactEmail: 'sports@gbaast.edu.cm',
+    registrationRequired: true,
+    registrationDeadline: '2026-01-17',
+    tags: ['basketball', 'tryouts', 'team-sports'],
+  },
+
+  // February 2026
+  {
+    id: 'evt-005',
+    title: 'Science Fair Planning Workshop',
+    description: 'Preparation workshop for students participating in the Annual Science Fair. Learn about project proposals, research methodology, and presentation skills.',
+    date: '2026-02-01',
+    time: '02:00 PM',
+    endTime: '04:00 PM',
+    location: 'Science Laboratory Complex',
+    category: 'Academic',
+    targetAudience: ['Form 3', 'Form 4', 'Form 5', 'Sixth Form'],
+    organizer: 'Science Department',
+    contactEmail: 'science@gbaast.edu.cm',
+    registrationRequired: true,
+    registrationDeadline: '2026-01-30',
+    maxParticipants: 60,
+    tags: ['science', 'workshop', 'science-fair'],
+  },
+  {
+    id: 'evt-006',
+    title: 'National Youth Day Celebration',
+    description: "Celebrating Cameroon's National Youth Day with cultural performances, sports competitions, and speeches. All students participate in house competitions.",
+    date: '2026-02-11',
+    time: 'All Day',
+    location: 'Main Campus & Sports Field',
+    category: 'Cultural',
+    targetAudience: ['All Students', 'Staff', 'Community'],
+    organizer: 'Student Council',
+    contactEmail: 'studentcouncil@gbaast.edu.cm',
+    registrationRequired: false,
+    tags: ['national-day', 'cultural', 'celebration', 'mandatory'],
+  },
+  {
+    id: 'evt-007',
+    title: 'Debate Championship - Quarter Finals',
+    description: 'Inter-school debate championship quarter finals. GBAAST team faces top schools from the Northwest Region. Topic: "Technology has done more harm than good to African education."',
+    date: '2026-02-14',
+    time: '04:00 PM',
+    endTime: '06:30 PM',
+    location: 'Assembly Hall',
+    category: 'Academic',
+    targetAudience: ['All Students', 'Parents', 'Community'],
+    organizer: 'Literary and Debating Society',
+    contactEmail: 'debate@gbaast.edu.cm',
+    registrationRequired: false,
+    tags: ['debate', 'competition', 'inter-school'],
+  },
+  {
+    id: 'evt-008',
+    title: 'Career Guidance Week',
+    description: 'Week-long career guidance program featuring guest speakers from various professions, university representatives, and career counseling sessions.',
+    date: '2026-02-17',
+    endDate: '2026-02-21',
+    time: '02:00 PM',
+    endTime: '05:00 PM',
+    location: 'Various Locations',
+    category: 'Academic',
+    targetAudience: ['Form 5', 'Sixth Form'],
+    organizer: 'Guidance and Counseling Department',
+    contactEmail: 'counseling@gbaast.edu.cm',
+    registrationRequired: false,
+    tags: ['career', 'guidance', 'university', 'future-planning'],
+  },
+  {
+    id: 'evt-009',
+    title: 'Bilingual Drama Competition',
+    description: 'Annual bilingual drama competition showcasing student theatrical talents in both English and French. Houses compete for the Drama Cup.',
+    date: '2026-02-28',
+    time: '05:00 PM',
+    endTime: '08:00 PM',
+    location: 'Assembly Hall',
+    category: 'Cultural',
+    targetAudience: ['All Students', 'Parents', 'Community'],
+    organizer: 'Drama Club',
+    contactEmail: 'drama@gbaast.edu.cm',
+    registrationRequired: false,
+    tags: ['drama', 'bilingual', 'performance', 'competition'],
+  },
+
+  // March 2026
+  {
+    id: 'evt-010',
+    title: 'International Women\'s Day Symposium',
+    description: 'Special symposium celebrating women in STEM, featuring female scientists, engineers, and entrepreneurs. Panel discussions and mentorship sessions.',
+    date: '2026-03-08',
+    time: '09:00 AM',
+    endTime: '03:00 PM',
+    location: 'Assembly Hall',
+    category: 'Community',
+    targetAudience: ['All Students', 'Staff', 'Community'],
+    organizer: 'Gender Equity Committee',
+    contactEmail: 'equity@gbaast.edu.cm',
+    registrationRequired: false,
+    tags: ['women', 'STEM', 'symposium', 'mentorship'],
+  },
+  {
+    id: 'evt-011',
+    title: 'Mid-Term Examinations Begin',
+    description: 'Second term mid-term examinations for all forms. Students must arrive 30 minutes before exam time. Exam timetables distributed via form masters.',
+    date: '2026-03-15',
+    endDate: '2026-03-22',
+    time: '08:00 AM',
+    location: 'Examination Halls',
+    category: 'Academic',
+    targetAudience: ['All Students'],
+    organizer: 'Examinations Office',
+    contactEmail: 'exams@gbaast.edu.cm',
+    registrationRequired: false,
+    tags: ['examinations', 'mid-term', 'mandatory'],
+  },
+  {
+    id: 'evt-012',
+    title: 'Inter-House Football Tournament',
+    description: 'Annual inter-house football championship. All houses compete in both boys and girls categories. Finals on March 29th.',
+    date: '2026-03-23',
+    endDate: '2026-03-29',
+    time: '03:30 PM',
+    endTime: '06:00 PM',
+    location: 'Sports Field - Football Pitch',
+    category: 'Sports',
+    targetAudience: ['All Students'],
+    organizer: 'Sports Department',
+    contactEmail: 'sports@gbaast.edu.cm',
+    registrationRequired: true,
+    registrationDeadline: '2026-03-20',
+    tags: ['football', 'inter-house', 'tournament', 'sports-day'],
+  },
+
+  // April 2026
+  {
+    id: 'evt-013',
+    title: 'Annual Science Fair',
+    description: 'The biggest event of the academic year! Students present innovative science projects. Prizes awarded in Physics, Chemistry, Biology, and Innovation categories. Open to public.',
+    date: '2026-04-05',
+    time: '09:00 AM',
+    endTime: '05:00 PM',
+    location: 'Science Complex & Assembly Hall',
+    category: 'Academic',
+    targetAudience: ['All Students', 'Parents', 'Community'],
+    organizer: 'Science Department',
+    contactEmail: 'science@gbaast.edu.cm',
+    registrationRequired: true,
+    registrationDeadline: '2026-03-25',
+    maxParticipants: 80,
+    imageUrl: 'https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=1200',
+    tags: ['science-fair', 'innovation', 'major-event', 'projects'],
+  },
+  {
+    id: 'evt-014',
+    title: 'Good Friday - School Holiday',
+    description: 'School closed in observance of Good Friday. Classes resume on Tuesday, April 21st.',
+    date: '2026-04-18',
+    time: 'All Day',
+    location: 'N/A',
+    category: 'Administrative',
+    targetAudience: ['All Students', 'Staff'],
+    organizer: 'Administration',
+    registrationRequired: false,
+    tags: ['holiday', 'closure'],
+  },
+  {
+    id: 'evt-015',
+    title: 'Easter Monday - School Holiday',
+    description: 'School closed in observance of Easter Monday. Classes resume on Tuesday, April 21st.',
+    date: '2026-04-21',
+    time: 'All Day',
+    location: 'N/A',
+    category: 'Administrative',
+    targetAudience: ['All Students', 'Staff'],
+    organizer: 'Administration',
+    registrationRequired: false,
+    tags: ['holiday', 'closure'],
+  },
+  {
+    id: 'evt-016',
+    title: 'Literature Week - Poetry Slam',
+    description: 'Annual poetry slam competition featuring original works and classic recitations in English and French. Winner represents school at Northwest Regional competition.',
+    date: '2026-04-24',
+    time: '04:00 PM',
+    endTime: '07:00 PM',
+    location: 'Assembly Hall',
+    category: 'Cultural',
+    targetAudience: ['All Students', 'Community'],
+    organizer: 'English & French Departments',
+    contactEmail: 'languages@gbaast.edu.cm',
+    registrationRequired: true,
+    registrationDeadline: '2026-04-20',
+    maxParticipants: 30,
+    tags: ['poetry', 'literature', 'bilingual', 'competition'],
+  },
+
+  // May 2026
+  {
+    id: 'evt-017',
+    title: 'Labour Day - School Holiday',
+    description: 'School closed in observance of International Workers\' Day.',
+    date: '2026-05-01',
+    time: 'All Day',
+    location: 'N/A',
+    category: 'Administrative',
+    targetAudience: ['All Students', 'Staff'],
+    organizer: 'Administration',
+    registrationRequired: false,
+    tags: ['holiday', 'closure'],
+  },
+  {
+    id: 'evt-018',
+    title: 'Model United Nations Conference',
+    description: 'Three-day Model UN conference hosted by GBAAST. Students from 15 schools participate. Simulating UN committees including Security Council, ECOSOC, and WHO.',
+    date: '2026-05-07',
+    endDate: '2026-05-09',
+    time: '08:00 AM',
+    endTime: '06:00 PM',
+    location: 'Main Campus - Multiple Venues',
+    category: 'Academic',
+    targetAudience: ['Form 4', 'Form 5', 'Sixth Form'],
+    organizer: 'Model UN Club',
+    contactEmail: 'modelun@gbaast.edu.cm',
+    registrationRequired: true,
+    registrationDeadline: '2026-04-25',
+    maxParticipants: 50,
+    imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200',
+    tags: ['model-un', 'debate', 'diplomacy', 'international', 'major-event'],
+  },
+  {
+    id: 'evt-019',
+    title: 'National Day - School Holiday',
+    description: 'School closed in observance of Cameroon National Day.',
+    date: '2026-05-20',
+    time: 'All Day',
+    location: 'N/A',
+    category: 'Administrative',
+    targetAudience: ['All Students', 'Staff'],
+    organizer: 'Administration',
+    registrationRequired: false,
+    tags: ['holiday', 'closure', 'national-day'],
+  },
+  {
+    id: 'evt-020',
+    title: 'Athletics Championship',
+    description: 'Annual inter-house athletics meet featuring track and field events. Students compete in sprints, relays, long jump, high jump, shot put, and javelin.',
+    date: '2026-05-23',
+    time: '08:00 AM',
+    endTime: '05:00 PM',
+    location: 'Sports Complex - Athletic Track',
+    category: 'Sports',
+    targetAudience: ['All Students'],
+    organizer: 'Sports Department',
+    contactEmail: 'sports@gbaast.edu.cm',
+    registrationRequired: true,
+    registrationDeadline: '2026-05-18',
+    imageUrl: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1200',
+    tags: ['athletics', 'track-and-field', 'sports-day', 'inter-house'],
+  },
+  {
+    id: 'evt-021',
+    title: 'End of Term Examinations',
+    description: 'Second term final examinations. Exam timetables distributed two weeks in advance. Students must bring required materials and ID cards.',
+    date: '2026-05-25',
+    endDate: '2026-06-05',
+    time: '08:00 AM',
+    location: 'Examination Halls',
+    category: 'Academic',
+    targetAudience: ['All Students'],
+    organizer: 'Examinations Office',
+    contactEmail: 'exams@gbaast.edu.cm',
+    registrationRequired: false,
+    tags: ['examinations', 'final-exams', 'mandatory'],
+  },
+
+  // June 2026
+  {
+    id: 'evt-022',
+    title: 'Prize Giving & Speech Day',
+    description: 'Annual prize giving ceremony celebrating academic excellence, sports achievements, and exemplary conduct. Guest of honor: Minister of Secondary Education.',
+    date: '2026-06-10',
+    time: '10:00 AM',
+    endTime: '02:00 PM',
+    location: 'Assembly Hall',
+    category: 'Administrative',
+    targetAudience: ['All Students', 'Parents', 'Community'],
+    organizer: 'Administration',
+    contactEmail: 'admin@gbaast.edu.cm',
+    registrationRequired: false,
+    imageUrl: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1200',
+    tags: ['ceremony', 'awards', 'major-event', 'mandatory'],
+  },
+  {
+    id: 'evt-023',
+    title: 'Second Term Ends',
+    description: 'Last day of second term. Report cards distributed. Third term begins on September 7, 2026.',
+    date: '2026-06-12',
+    time: '12:00 PM',
+    location: 'Main Campus',
+    category: 'Administrative',
+    targetAudience: ['All Students', 'Parents'],
+    organizer: 'Academic Office',
+    registrationRequired: false,
+    tags: ['term-end', 'report-cards'],
+  },
+  {
+    id: 'evt-024',
+    title: 'Summer STEM Camp - Week 1',
+    description: 'Optional summer enrichment program focusing on robotics, coding, and environmental science. Limited spots available.',
+    date: '2026-06-22',
+    endDate: '2026-06-26',
+    time: '09:00 AM',
+    endTime: '03:00 PM',
+    location: 'Science & ICT Labs',
+    category: 'Academic',
+    targetAudience: ['Form 2', 'Form 3', 'Form 4'],
+    organizer: 'STEM Department',
+    contactEmail: 'stem@gbaast.edu.cm',
+    registrationRequired: true,
+    registrationDeadline: '2026-06-10',
+    maxParticipants: 40,
+    tags: ['summer-camp', 'STEM', 'enrichment', 'robotics'],
+  },
+
+  // September 2026 (Third Term)
+  {
+    id: 'evt-025',
+    title: 'Third Term Begins',
+    description: 'Welcome back for the final term of 2025-2026 academic year. Registration and orientation for all students.',
+    date: '2026-09-07',
+    time: '08:00 AM',
+    endTime: '12:00 PM',
+    location: 'Main Campus',
+    category: 'Administrative',
+    targetAudience: ['All Students'],
+    organizer: 'Academic Office',
+    contactEmail: 'academics@gbaast.edu.cm',
+    registrationRequired: false,
+    tags: ['term-start', 'mandatory', 'orientation'],
+  },
+  {
+    id: 'evt-026',
+    title: 'Open House & Campus Tour',
+    description: 'Prospective students and parents are invited for campus tours, meet teachers, and learn about our programs and admission process.',
+    date: '2026-09-15',
+    time: '09:00 AM',
+    endTime: '03:00 PM',
+    location: 'Main Campus - Starting at Reception',
+    category: 'Community',
+    targetAudience: ['Prospective Students', 'Parents'],
+    organizer: 'Admissions Office',
+    contactEmail: 'admissions@gbaast.edu.cm',
+    registrationRequired: true,
+    registrationDeadline: '2026-09-12',
+    imageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200',
+    tags: ['open-house', 'campus-tour', 'admissions', 'recruitment'],
+  },
+
+  // October 2026
+  {
+    id: 'evt-027',
+    title: 'Entrepreneurship Week',
+    description: 'Week-long entrepreneurship program: business plan competition, startup pitch sessions, and talks from successful Cameroonian entrepreneurs.',
+    date: '2026-10-05',
+    endDate: '2026-10-09',
+    time: '02:00 PM',
+    endTime: '05:00 PM',
+    location: 'Business Studies Block',
+    category: 'Academic',
+    targetAudience: ['Form 4', 'Form 5', 'Sixth Form'],
+    organizer: 'Business Studies Department',
+    contactEmail: 'business@gbaast.edu.cm',
+    registrationRequired: true,
+    registrationDeadline: '2026-10-01',
+    tags: ['entrepreneurship', 'business', 'innovation', 'competition'],
+  },
+  {
+    id: 'evt-028',
+    title: 'World Teachers\' Day Celebration',
+    description: 'Students organize special appreciation day for teachers featuring performances, gifts, and gratitude messages.',
+    date: '2026-10-05',
+    time: '11:00 AM',
+    endTime: '01:00 PM',
+    location: 'Assembly Hall',
+    category: 'Community',
+    targetAudience: ['All Students', 'Staff'],
+    organizer: 'Student Council',
+    contactEmail: 'studentcouncil@gbaast.edu.cm',
+    registrationRequired: false,
+    tags: ['teachers', 'appreciation', 'celebration'],
+  },
+
+  // November 2026
+  {
+    id: 'evt-029',
+    title: 'Mock Exams - Form 5 & Upper Sixth',
+    description: 'Mock O-Level and A-Level examinations for Form 5 and Upper Sixth students. Critical preparation for national exams.',
+    date: '2026-11-02',
+    endDate: '2026-11-13',
+    time: '08:00 AM',
+    location: 'Examination Halls',
+    category: 'Academic',
+    targetAudience: ['Form 5', 'Upper Sixth'],
+    organizer: 'Examinations Office',
+    contactEmail: 'exams@gbaast.edu.cm',
+    registrationRequired: false,
+    tags: ['mock-exams', 'preparation', 'mandatory'],
+  },
+  {
+    id: 'evt-030',
+    title: 'Inter-House Cultural Festival',
+    description: 'Showcase of diverse Cameroonian cultures through traditional dances, music, food, and fashion. Houses compete for Culture Cup.',
+    date: '2026-11-21',
+    time: '09:00 AM',
+    endTime: '06:00 PM',
+    location: 'Main Campus - Multiple Venues',
+    category: 'Cultural',
+    targetAudience: ['All Students', 'Parents', 'Community'],
+    organizer: 'Cultural Committee',
+    contactEmail: 'culture@gbaast.edu.cm',
+    registrationRequired: false,
+    imageUrl: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1200',
+    tags: ['cultural-festival', 'inter-house', 'traditions', 'major-event'],
+  },
+
+  // December 2026
+  {
+    id: 'evt-031',
+    title: 'End of Year Examinations',
+    description: 'Final examinations for the 2025-2026 academic year. Comprehensive assessment of year-long learning.',
+    date: '2026-12-01',
+    endDate: '2026-12-10',
+    time: '08:00 AM',
+    location: 'Examination Halls',
+    category: 'Academic',
+    targetAudience: ['All Students'],
+    organizer: 'Examinations Office',
+    contactEmail: 'exams@gbaast.edu.cm',
+    registrationRequired: false,
+    tags: ['final-exams', 'year-end', 'mandatory'],
+  },
+  {
+    id: 'evt-032',
+    title: 'Graduation Ceremony - Form 5 & Upper Sixth',
+    description: 'Official graduation ceremony for Form 5 and Upper Sixth students completing their programs. Formal event with diplomas, speeches, and celebration.',
+    date: '2026-12-15',
+    time: '02:00 PM',
+    endTime: '06:00 PM',
+    location: 'Assembly Hall',
+    category: 'Administrative',
+    targetAudience: ['Form 5', 'Upper Sixth', 'Parents', 'Community'],
+    organizer: 'Administration',
+    contactEmail: 'admin@gbaast.edu.cm',
+    registrationRequired: true,
+    registrationDeadline: '2026-12-10',
+    imageUrl: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=1200',
+    tags: ['graduation', 'ceremony', 'major-event', 'celebration'],
+  },
+  {
+    id: 'evt-033',
+    title: 'Academic Year Ends',
+    description: 'Last day of 2025-2026 academic year. Report cards distributed. Next academic year begins September 2027.',
+    date: '2026-12-18',
+    time: '12:00 PM',
+    location: 'Main Campus',
+    category: 'Administrative',
+    targetAudience: ['All Students', 'Parents'],
+    organizer: 'Academic Office',
+    registrationRequired: false,
+    tags: ['year-end', 'report-cards'],
+  },
+];
+
+// Helper functions
+export const getUpcomingEvents = (count?: number): CalendarEvent[] => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  const upcoming = calendarEvents
+    .filter(event => new Date(event.date) >= today)
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  
+  return count ? upcoming.slice(0, count) : upcoming;
+};
+
+export const getPastEvents = (count?: number): CalendarEvent[] => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  const past = calendarEvents
+    .filter(event => new Date(event.date) < today)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  
+  return count ? past.slice(0, count) : past;
+};
+
+export const getEventsByCategory = (category: CalendarEvent['category']): CalendarEvent[] => {
+  return calendarEvents.filter(event => event.category === category);
+};
+
+export const getEventsByMonth = (year: number, month: number): CalendarEvent[] => {
+  return calendarEvents.filter(event => {
+    const eventDate = new Date(event.date);
+    return eventDate.getFullYear() === year && eventDate.getMonth() === month;
+  });
+};
+
+export const searchEvents = (query: string): CalendarEvent[] => {
+  const lowerQuery = query.toLowerCase();
+  return calendarEvents.filter(event => 
+    event.title.toLowerCase().includes(lowerQuery) ||
+    event.description.toLowerCase().includes(lowerQuery) ||
+    event.tags.some(tag => tag.toLowerCase().includes(lowerQuery))
+  );
+};

@@ -19,8 +19,11 @@ import { TermsPage } from './pages/TermsPage';
 import { CookiePolicyPage } from './pages/CookiePolicyPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { BlogPage } from './pages/BlogPage';
-import { StudentSpotlightPage } from './pages/StudentSpotlightPage';
+import { StudentSpotlightPage } from './pages/StudentSpotlightPage.tsx';
+import { StudentSpotlightDetailPage } from './pages/StudentSpotlightDetailPage.tsx';
 import { SearchPage } from './pages/SearchPage';
+import { ApplyProcessPage } from './pages/ApplyProcessPage';
+import { ApplicationDetailPage } from './pages/ApplicationDetailPage';
 // Admin Pages
 import { AdminLoginPage } from './pages/admin/AdminLoginPage';
 import { AdminDashboardPage } from './pages/admin/AdminDashboardPage';
@@ -206,6 +209,22 @@ export function App() {
           } />
 
         <Route
+          path="/apply-process"
+          element={
+          <Layout>
+              <ApplyProcessPage />
+            </Layout>
+          } />
+
+        <Route
+          path="/apply-process/:id"
+          element={
+          <Layout>
+              <ApplicationDetailPage />
+            </Layout>
+          } />
+
+        <Route
           path="/alumni"
           element={
           <Layout>
@@ -258,6 +277,14 @@ export function App() {
           element={
           <Layout>
               <StudentSpotlightPage />
+            </Layout>
+          } />
+
+        <Route
+          path="/student-spotlight/:id"
+          element={
+          <Layout>
+              <StudentSpotlightDetailPage />
             </Layout>
           } />
 

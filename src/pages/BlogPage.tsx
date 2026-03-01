@@ -77,10 +77,10 @@ const blogPosts = [
   title: 'GBAAST Partners with British Council',
   category: 'School News',
   date: 'Jul 28, 2024',
-  author: 'Dr. Grace Nkeng',
+  author: 'Mr. Tawe Ettiene',
   readTime: '4 min',
   color: 'from-indigo-500 to-blue-600',
-  initials: 'GN'
+  initials: 'TE'
 },
 {
   title: 'End of Year Awards: Top Performers',
@@ -163,11 +163,11 @@ export function BlogPage() {
                     <div className="flex items-center justify-between mt-auto">
                       <div className="flex items-center">
                         <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-[#002B5B] font-bold mr-3">
-                          GN
+                          TE
                         </div>
                         <div>
                           <p className="text-sm font-bold text-[#002B5B]">
-                            Dr. Grace Nkeng
+                            Mr. Tawe Ettiene
                           </p>
                           <p className="text-xs text-gray-500 flex items-center">
                             <Clock className="h-3 w-3 mr-1" /> 8 min read
