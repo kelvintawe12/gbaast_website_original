@@ -25,6 +25,7 @@ import { StudentSpotlightDetailPage } from './pages/StudentSpotlightDetailPage.t
 import { SearchPage } from './pages/SearchPage';
 import { ApplyProcessPage } from './pages/ApplyProcessPage';
 import { ApplicationDetailPage } from './pages/ApplicationDetailPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 // Admin Pages
 import { AdminLoginPage } from './pages/admin/AdminLoginPage';
 import { AdminDashboardPage } from './pages/admin/AdminDashboardPage';
@@ -304,6 +305,12 @@ export function App() {
               <SearchPage />
             </Layout>
           } />
+
+        {/* Catch-all route for missed pages */}
+        <Route
+          path="*"
+          element={<NotFoundPage />}
+        />
 
       </Routes>
     </HashRouter>);
