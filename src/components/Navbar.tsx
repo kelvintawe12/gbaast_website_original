@@ -244,9 +244,12 @@ export function Navbar() {
 
         {/* Right actions */}
         <div className="hidden lg:flex items-center space-x-3">
-          <button className="text-white hover:text-[#C8102E] transition-colors p-1.5 bg-white/10 rounded-full">
+          <Link
+            to="/search"
+            className="text-white hover:text-[#C8102E] transition-colors p-1.5 bg-white/10 rounded-full hover:bg-white/20"
+            aria-label="Search">
             <SearchIcon className="h-4 w-4" />
-          </button>
+          </Link>
           <Link
             to="/admin/login"
             className="text-white/70 hover:text-white transition-colors text-xs font-semibold flex items-center border border-white/20 px-2.5 py-1.5 rounded hover:border-white/40">
@@ -328,10 +331,13 @@ export function Navbar() {
 
           })}
             <div className="pt-4 flex flex-col space-y-3">
-              <button className="flex items-center justify-center text-white border border-white/20 py-3 rounded">
+              <Link
+                to="/search"
+                className="flex items-center justify-center text-white border border-white/20 py-3 rounded hover:bg-white/10 transition-colors"
+                onClick={() => setMobileOpen(false)}>
                 <SearchIcon className="h-5 w-5 mr-2" />
                 Search
-              </button>
+              </Link>
               <Link
               to="/admin/login"
               className="flex items-center justify-center text-white/70 border border-white/20 py-3 rounded text-sm font-semibold hover:text-white"

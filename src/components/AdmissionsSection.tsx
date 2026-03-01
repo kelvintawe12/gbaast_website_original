@@ -10,10 +10,12 @@ export function AdmissionsSection() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 relative w-full flex justify-center lg:justify-start">
-            <div className="w-full max-w-md h-[500px] bg-gradient-to-br from-blue-400 to-indigo-600 rounded-2xl flex items-center justify-center relative z-10">
-              <span className="text-white/50 text-xl font-bold">
-                Students Image
-              </span>
+            <div className="w-full max-w-md h-[500px] rounded-2xl overflow-hidden shadow-2xl relative z-10">
+              <img
+                src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="GBAAST Students"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/20 blur-[100px] rounded-full z-0"></div>
           </div>

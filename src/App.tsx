@@ -20,6 +20,7 @@ import { CookiePolicyPage } from './pages/CookiePolicyPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { BlogPage } from './pages/BlogPage';
 import { StudentSpotlightPage } from './pages/StudentSpotlightPage';
+import { SearchPage } from './pages/SearchPage';
 // Admin Pages
 import { AdminLoginPage } from './pages/admin/AdminLoginPage';
 import { AdminDashboardPage } from './pages/admin/AdminDashboardPage';
@@ -249,6 +250,14 @@ export function App() {
           element={
           <Layout>
               <StudentSpotlightPage />
+            </Layout>
+          } />
+
+        <Route
+          path="/search"
+          element={
+          <Layout>
+              <SearchPage />
             </Layout>
           } />
 

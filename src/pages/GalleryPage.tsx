@@ -1,101 +1,118 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LayoutGrid, List, X, ChevronLeft, ChevronRight } from 'lucide-react';
+
 const galleryItems = [
 {
   title: 'Main School Building',
   category: 'Campus',
   description: 'The iconic entrance of GBAAST',
+  image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=800&h=600&fit=crop',
   color: 'from-blue-500 to-indigo-600'
 },
 {
   title: 'Science Laboratory',
   category: 'Academics',
   description: 'State-of-the-art science lab',
+  image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=600&fit=crop',
   color: 'from-emerald-400 to-teal-500'
 },
 {
   title: 'Football Match',
   category: 'Sports',
   description: 'Inter-house football competition',
+  image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=600&fit=crop',
   color: 'from-orange-400 to-red-500'
 },
 {
   title: 'Cultural Day',
   category: 'Events',
   description: 'Students celebrating Cultural Week',
+  image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop',
   color: 'from-purple-500 to-pink-500'
 },
 {
   title: 'Student Dormitory',
   category: 'Dormitory',
   description: 'Modern boarding facilities',
+  image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&h=600&fit=crop',
   color: 'from-cyan-400 to-blue-500'
 },
 {
   title: 'Graduation Ceremony',
   category: 'Graduation',
   description: 'Class of 2024 graduates',
+  image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop',
   color: 'from-yellow-400 to-orange-500'
 },
 {
   title: 'Computer Lab',
   category: 'Academics',
   description: '50 modern workstations',
+  image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&h=600&fit=crop',
   color: 'from-indigo-500 to-blue-600'
 },
 {
   title: 'Basketball Court',
   category: 'Sports',
   description: 'Students during PE class',
+  image: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&h=600&fit=crop',
   color: 'from-red-500 to-rose-500'
 },
 {
   title: 'Library Reading Room',
   category: 'Academics',
   description: 'Quiet study environment',
+  image: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&h=600&fit=crop',
   color: 'from-teal-400 to-emerald-500'
 },
 {
   title: 'School Assembly',
   category: 'Events',
   description: 'Morning assembly on the field',
+  image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&h=600&fit=crop',
   color: 'from-blue-400 to-cyan-500'
 },
 {
   title: 'Dormitory Common Room',
   category: 'Dormitory',
   description: 'Recreation area for boarders',
+  image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop',
   color: 'from-pink-500 to-rose-500'
 },
 {
   title: 'Prize Giving Day',
   category: 'Graduation',
   description: 'Awarding top performers',
+  image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
   color: 'from-amber-400 to-orange-500'
 },
 {
   title: 'School Garden',
   category: 'Campus',
   description: 'Environmental club project',
+  image: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800&h=600&fit=crop',
   color: 'from-green-400 to-emerald-500'
 },
 {
   title: 'Debate Competition',
   category: 'Events',
   description: 'Regional debate championship',
+  image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop',
   color: 'from-violet-500 to-purple-600'
 },
 {
   title: 'Sports Day',
   category: 'Sports',
   description: 'Annual athletics competition',
+  image: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=800&h=600&fit=crop',
   color: 'from-orange-500 to-amber-500'
 },
 {
   title: 'Chapel Service',
   category: 'Campus',
   description: 'Weekly spiritual gathering',
+  image: 'https://images.unsplash.com/photo-1507692049790-de58290a4334?w=800&h=600&fit=crop',
   color: 'from-slate-500 to-gray-600'
 }];
 
@@ -190,9 +207,11 @@ export function GalleryPage() {
               onClick={() => setSelectedItem(index)}
               className="rounded-xl overflow-hidden relative group cursor-pointer hover:shadow-xl transition-all duration-300">
 
-                  <div
-                className={`h-56 bg-gradient-to-br ${item.color} w-full`}>
-              </div>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
                   <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#002B5B] text-xs font-bold px-3 py-1 rounded-full">
                     {item.category}
                   </div>
@@ -216,9 +235,11 @@ export function GalleryPage() {
               onClick={() => setSelectedItem(index)}
               className="flex flex-col sm:flex-row bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 overflow-hidden cursor-pointer group">
 
-                  <div
-                className={`w-full sm:w-48 h-48 sm:h-36 bg-gradient-to-br ${item.color} flex-shrink-0`}>
-              </div>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full sm:w-48 h-48 sm:h-36 object-cover flex-shrink-0"
+                  />
                   <div className="p-6 flex flex-col justify-center flex-1">
                     <div className="flex items-center justify-between mb-2">
                       <span className="bg-gray-100 text-[#002B5B] text-xs font-bold px-3 py-1 rounded-full">
@@ -265,9 +286,11 @@ export function GalleryPage() {
           className="relative w-full max-w-5xl flex flex-col items-center"
           onClick={(e) => e.stopPropagation()}>
 
-            <div
-            className={`w-full h-[50vh] md:h-[70vh] rounded-lg bg-gradient-to-br ${filteredItems[selectedItem].color} shadow-2xl mb-6`}>
-          </div>
+            <img
+              src={filteredItems[selectedItem].image}
+              alt={filteredItems[selectedItem].title}
+              className="w-full h-[50vh] md:h-[70vh] rounded-lg object-cover shadow-2xl mb-6"
+            />
 
             <div className="text-center w-full max-w-2xl">
               <span className="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
