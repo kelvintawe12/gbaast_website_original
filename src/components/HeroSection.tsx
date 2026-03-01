@@ -5,35 +5,47 @@ import {
   ArrowRight,
   ChevronLeft,
   ChevronRight,
-  GraduationCap } from
-'lucide-react';
+  GraduationCap,
+  Users,
+  Award,
+  BookOpen,
+  Globe,
+  FlaskConical,
+  Trophy,
+  Sparkles
+} from 'lucide-react';
+
 const slides = [
 {
   image:
-  'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920',
+  'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1920&q=80',
   heading: ["Shaping Tomorrow's", 'Leaders Through', 'Bilingual Excellence'],
   subtitle:
-  'A premier bilingual dormitory school offering quality secondary education in Arts, Sciences, and Technology.'
+  'A premier bilingual dormitory school offering quality secondary education in Arts, Sciences, and Technology.',
+  icon: Globe
 },
 {
-  image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=1920',
+  image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&q=80',
   heading: ['Excellence in Arts,', 'Sciences &', 'Technology'],
   subtitle:
-  'Hands-on learning in modern laboratories and classrooms, preparing students for a bright future.'
+  'Hands-on learning in modern laboratories and classrooms, preparing students for a bright future.',
+  icon: FlaskConical
 },
 {
   image:
-  'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920',
+  'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&q=80',
   heading: ['98% Exam', 'Success Rate —', 'Proven Results'],
   subtitle:
-  'Our students consistently achieve outstanding results in GCE and BEPC examinations.'
+  'Our students consistently achieve outstanding results in GCE examinations.',
+  icon: Award
 },
 {
   image:
-  'https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1920',
+  'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1920&q=80',
   heading: ['A Vibrant', 'Campus', 'Community'],
   subtitle:
-  'Sports, culture, friendships, and memories that last a lifetime at GBAAST.'
+  'Sports, culture, friendships, and memories that last a lifetime at GBAAST.',
+  icon: Users
 }];
 
 export function HeroSection() {
@@ -68,6 +80,13 @@ export function HeroSection() {
 
       <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#001A3A]/95 via-[#001A3A]/80 to-transparent" />
 
+      {/* Floating decorative icons */}
+      <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+        <Sparkles className="absolute top-20 right-20 h-8 w-8 text-[#C8102E]/20 animate-pulse" />
+        <BookOpen className="absolute top-40 right-40 h-12 w-12 text-white/10 animate-float" />
+        <Trophy className="absolute bottom-32 right-32 h-10 w-10 text-[#C8102E]/20 animate-float-delayed" />
+      </div>
+
       <div className="relative z-20 max-w-7xl mx-auto px-4 w-full">
         <div className="max-w-3xl">
           <div className="flex items-center mb-6">
@@ -77,24 +96,32 @@ export function HeroSection() {
             </span>
           </div>
 
-          <div className="relative h-[200px] md:h-[240px] mb-6">
-            {slides.map((slide, index) =>
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+          <div className="relative h-[220px] md:h-[260px] lg:h-[280px] xl:h-[300px] mb-6">
+            {slides.map((slide, index) => {
+              const SlideIcon = slide.icon;
+              return (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
 
-                <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
+                {/* Slide Icon */}
+                <div className="w-14 h-14 rounded-2xl bg-[#C8102E]/20 backdrop-blur-sm flex items-center justify-center border border-[#C8102E]/30 mb-6">
+                  <SlideIcon className="h-7 w-7 text-[#C8102E]" />
+                </div>
+
+                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6">
                   {slide.heading[0]}
                   <br />
                   {slide.heading[1]}
                   <br />
                   <span className="text-[#C8102E]">{slide.heading[2]}</span>
                 </h1>
-                <p className="text-lg md:text-xl text-white/90 font-medium max-w-2xl">
+                <p className="text-lg md:text-xl lg:text-2xl text-white/90 font-medium max-w-2xl lg:max-w-3xl">
                   {slide.subtitle}
                 </p>
               </div>
-            )}
+              );
+            })}
           </div>
 
           <div className="flex items-center text-white mb-10">

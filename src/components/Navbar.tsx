@@ -202,18 +202,31 @@ export function Navbar() {
   };
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || location.pathname !== '/' ? 'bg-[#002B5B] shadow-lg py-2' : 'bg-[#002B5B] py-3'}`}>
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || location.pathname !== '/' ? 'bg-[#002B5B] shadow-lg py-4' : 'bg-[#002B5B] py-5'}`}>
 
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
         {/* GBAAST Logo */}
-        <Link to="/" className="flex items-center text-white cursor-pointer">
-          <span className="text-xl font-bold tracking-tighter mr-2">
-            GBAAST
+        <Link to="/" className="flex items-center text-white cursor-pointer group">
+          <span className="text-xl font-bold tracking-tighter mr-2 flex relative overflow-visible">
+            {['G', 'B', 'A', 'A', 'S', 'T'].map((letter, i) => (
+              <span
+                key={i}
+                className="inline-block animate-playful-jump bg-gradient-to-br from-white via-[#C8102E] to-white bg-clip-text text-transparent animate-color-shift group-hover:animate-dangle-swing"
+                style={{
+                  animationDelay: `${i * 0.15}s`,
+                  backgroundSize: '200% 200%',
+                  transformOrigin: 'top center'
+                }}
+              >
+                {letter}
+              </span>
+            ))}
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer-fast pointer-events-none" />
           </span>
-          <div className="flex flex-col leading-none text-[7px] font-semibold tracking-widest border-l border-white/30 pl-2">
-            <span>GRACE BILINGUAL</span>
-            <span>ACADEMY OF ARTS</span>
-            <span>SCIENCE & TECH</span>
+          <div className="flex flex-col leading-none text-[7px] font-semibold tracking-widest border-l border-white/30 pl-2 group-hover:border-[#C8102E]/50 transition-colors duration-300 animate-subtle-sway">
+            <span className="group-hover:text-[#C8102E]/80 transition-colors duration-300 animate-fade-wave" style={{animationDelay: '0.1s'}}>GRACE BILINGUAL</span>
+            <span className="group-hover:text-[#C8102E]/80 transition-colors duration-300 animate-fade-wave" style={{animationDelay: '0.2s'}}>ACADEMY OF ARTS</span>
+            <span className="group-hover:text-[#C8102E]/80 transition-colors duration-300 animate-fade-wave" style={{animationDelay: '0.3s'}}>SCIENCE & TECH</span>
           </div>
         </Link>
 
@@ -249,13 +262,6 @@ export function Navbar() {
             className="text-white hover:text-[#C8102E] transition-colors p-1.5 bg-white/10 rounded-full hover:bg-white/20"
             aria-label="Search">
             <SearchIcon className="h-4 w-4" />
-          </Link>
-          <Link
-            to="/admin/login"
-            className="text-white/70 hover:text-white transition-colors text-xs font-semibold flex items-center border border-white/20 px-2.5 py-1.5 rounded hover:border-white/40">
-
-            <ShieldCheckIcon className="h-3.5 w-3.5 mr-1" />
-            ADMIN
           </Link>
           <Link
             to="/apply"
@@ -337,14 +343,6 @@ export function Navbar() {
                 onClick={() => setMobileOpen(false)}>
                 <SearchIcon className="h-5 w-5 mr-2" />
                 Search
-              </Link>
-              <Link
-              to="/admin/login"
-              className="flex items-center justify-center text-white/70 border border-white/20 py-3 rounded text-sm font-semibold hover:text-white"
-              onClick={() => setMobileOpen(false)}>
-
-                <ShieldCheckIcon className="h-4 w-4 mr-2" />
-                Admin Login
               </Link>
               <Link
               to="/apply"
