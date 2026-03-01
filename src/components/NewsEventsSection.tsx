@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Clock, ArrowRight, Calendar, TrendingUp, Award, Newspaper } from 'lucide-react';
 
@@ -115,7 +114,7 @@ export function NewsEventsSection() {
               {news.map((item, index) =>
               <Link
                 key={item.id}
-                to="/news"
+                to={`/news/${item.id}`}
                 className="group block bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-[#C8102E]/30 hover:-translate-y-1">
 
                   <div className="flex flex-col sm:flex-row gap-0 sm:gap-6">

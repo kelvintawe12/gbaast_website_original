@@ -1,4 +1,3 @@
-import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { AdminLayout } from './components/admin/AdminLayout';
@@ -10,6 +9,7 @@ import { AdmissionsPage } from './pages/AdmissionsPage';
 import { CampusLifePage } from './pages/CampusLifePage';
 import { ContactPage } from './pages/ContactPage';
 import { NewsPage } from './pages/NewsPage';
+import { NewsArticlePage } from './pages/NewsArticlePage';
 import { EventsPage } from './pages/EventsPage';
 import { ScholarshipsPage } from './pages/ScholarshipsPage';
 import { AlumniPage } from './pages/AlumniPage';
@@ -178,6 +178,14 @@ export function App() {
           element={
           <Layout>
               <NewsPage />
+            </Layout>
+          } />
+
+        <Route
+          path="/news/:id"
+          element={
+          <Layout>
+              <NewsArticlePage />
             </Layout>
           } />
 
