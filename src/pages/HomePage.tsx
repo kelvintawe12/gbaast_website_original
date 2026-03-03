@@ -24,7 +24,7 @@ export function HomePage() {
       <AcademicPrograms />
       <StatsSection />
       <NewsEventsSection />
-      <CampusLifeSection />
+      <CampusLicfeSection />
       <ResearchSection />
       <AdmissionsSection />
       <TestimonialsSection />

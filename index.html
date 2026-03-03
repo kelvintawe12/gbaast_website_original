@@ -36,6 +36,146 @@
     <meta name="theme-color" content="#001A3A" />
     <meta name="application-name" content="GBAAST Website" />
     <link rel="canonical" href="https://www.gbaast.com/" />
+    
+    <!-- Geographic Meta Tags -->
+    <meta name="geo.region" content="CM" />
+    <meta name="geo.placename" content="Bamenda, Cameroon" />
+    <meta name="geo.position" content="5.9597;10.1453" />
+    <meta name="ICBM" content="5.9597, 10.1453" />
+    
+    <!-- Contact & Organization -->
+    <meta name="contact" content="info@gbaast.com" />
+    <meta name="copyright" content="© 2026 GBAAST. All Rights Reserved." />
+    <meta name="rating" content="General" />
+    <meta name="distribution" content="global" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Mobile Optimization -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="GBAAST" />
+    <meta name="format-detection" content="telephone=yes" />
+    
+    <!-- Additional Open Graph -->
+    <meta property="og:phone_number" content="+237-XXX-XXX-XXX" />
+    <meta property="og:email" content="info@gbaast.com" />
+    <meta property="og:latitude" content="5.9597" />
+    <meta property="og:longitude" content="10.1453" />
+    <meta property="og:street-address" content="Bamenda" />
+    <meta property="og:locality" content="Bamenda" />
+    <meta property="og:region" content="North West Region" />
+    <meta property="og:postal-code" content="" />
+    <meta property="og:country-name" content="Cameroon" />
+    
+    <!-- Structured Data - JSON-LD Schema for Educational Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "@id": "https://www.gbaast.com/#organization",
+      "name": "Government Bilingual Anglophone Secondary School of Arts, Sciences & Technology",
+      "alternateName": "GBAAST",
+      "url": "https://www.gbaast.com",
+      "logo": "https://www.gbaast.com/logo.png",
+      "description": "A premier bilingual dormitory school offering quality secondary education in Arts, Sciences, and Technology with a 98% exam success rate.",
+      "foundingDate": "2010",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Bamenda",
+        "addressLocality": "Bamenda",
+        "addressRegion": "North West Region",
+        "addressCountry": "CM"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "5.9597",
+        "longitude": "10.1453"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+237-XXX-XXX-XXX",
+        "contactType": "Admissions",
+        "email": "info@gbaast.com",
+        "availableLanguage": ["English", "French"]
+      },
+      "sameAs": [
+        "https://www.facebook.com/gbaast",
+        "https://twitter.com/gbaast",
+        "https://www.instagram.com/gbaast"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "500",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "numberOfStudents": {
+        "@type": "QuantitativeValue",
+        "value": "2000"
+      },
+      "alumni": {
+        "@type": "Organization",
+        "name": "GBAAST Alumni Association"
+      }
+    }
+    </script>
+    
+    <!-- Website Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://www.gbaast.com/#website",
+      "url": "https://www.gbaast.com",
+      "name": "GBAAST",
+      "description": "Government Bilingual Anglophone Secondary School of Arts, Sciences & Technology",
+      "publisher": {
+        "@id": "https://www.gbaast.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.gbaast.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "inLanguage": "en-US"
+    }
+    </script>
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.gbaast.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://www.gbaast.com/#/about"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Programs",
+          "item": "https://www.gbaast.com/#/programs"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Admissions",
+          "item": "https://www.gbaast.com/#/admissions"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
